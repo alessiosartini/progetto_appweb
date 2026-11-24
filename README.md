@@ -1,5 +1,8 @@
 # Gestore Aule Studio
 
+<img width="1024" height="572" alt="immagine" src="https://github.com/user-attachments/assets/b8b75fd6-f50e-487b-bcb4-34a9005c38b1" />
+
+
 Applicazione web per la gestione e la prenotazione delle aule studio universitarie dedicata agli studenti, con autenticazione, consultazione delle aule, creazione e annullamento delle prenotazioni e tutela della privacy sulle email degli altri utenti.
 
 ## Panoramica
