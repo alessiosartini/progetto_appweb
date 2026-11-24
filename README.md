@@ -45,6 +45,13 @@ L'applicazione adotta un'architettura **client-server a tre livelli** (Frontend,
   - **Tabella `utenti`:** anagrafica e credenziali degli studenti abilitati all'accesso.
   - **Tabella `aule`:** catalogo delle aule studio con capienza e ubicazione.
   - **Tabella `prenotazioni`:** registro delle prenotazioni collegate alle aule tramite chiave esterna (`FOREIGN KEY` su `aula_id` con `ON DELETE CASCADE`) e query parametriche (`?`) per prevenire SQL injection.
+ 
+## Sviluppi futuri
+- **Registrazione utenti dedicata (`POST /api/register`):** aggiunta di un flusso separato di registrazione per creare nuovi account nel database controllando l'univocità dell'email, mantenendo distinto il login (`POST /api/login`).
+- **Sessioni e autenticazione lato server:** introduzione di una sessione sul backend (ad esempio tramite cookie/sessioni server o token) al posto del solo salvataggio dello stato utente sul browser (`sessionStorage`/`localStorage`), per rendere ancora più sicure le verifiche sui permessi di eliminazione (`DELETE /api/prenotazioni/:id`).
+- **Gestione avanzata dei ruoli (`studente`, `docente`, `admin`):** estensione dei permessi per consentire a ruoli dedicati o amministratori una gestione più ampia delle prenotazioni o delle aule.
+- **Gestione del catalogo aule e filtri:** possibilità di aggiungere/modificare aule direttamente dall'interfaccia o filtrare le disponibilità per aula, data o fascia oraria.
+- **Configurazione tramite variabili d'ambiente (`.env`):** spostamento dei parametri di connessione al database MySQL e della porta del server in variabili d'ambiente per evitare credenziali cablate nel codice.
 
 ## Struttura del repository
 - `server.js` — Server Express, connessione al database MySQL ed endpoint REST API (`/api/login`, `/api/aule`, `/api/prenotazioni`)
