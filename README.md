@@ -32,6 +32,11 @@ L'applicazione adotta un'architettura **client-server a tre livelli** (Frontend,
   - **Servizio Aule (`GET /api/aule`):** recupero dell'elenco completo delle aule studio disponibili.
   - **Servizio Prenotazioni (`GET`, `POST`, `DELETE /api/prenotazioni`):** lettura delle prenotazioni con `JOIN` sulle aule, controllo preventivo contro le sovrapposizioni (stato `409 Conflict`) e verifica lato server dell'identità del proprietario prima dell'eliminazione (stato `403 Forbidden`).
 
+### Design e interfaccia (`public/style.css`)
+- **Layout responsive:** impaginazione centrata con adattamento tramite media query (`max-width: 640px`) per la consultazione da desktop e smartphone.
+- **Struttura a card e liste:** sezioni distinte per accesso, aule studio, form di prenotazione ed elenco delle prenotazioni registrate.
+- **Stati visivi:** stili dedicati a pulsanti principali e di annullamento (`.btn-annulla`), focus sui campi e messaggi di stato o errore.
+
 ### Database
 - **Database relazionale MySQL** (`db_aule_studio`) gestito tramite il driver `mysql2`:
   - **Tabella `utenti`:** anagrafica e credenziali degli studenti abilitati all'accesso.
