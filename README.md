@@ -17,6 +17,28 @@ Il Gestore Aule Studio è una web application pensata per semplificare la vita q
 - **Backend:** Node.js, Express (`server.js`)
 - **Database:** MySQL (`mysql2`)
 
+## Architettura
+L'applicazione adotta un'architettura **client-server a tre livelli** (Frontend, Backend REST API e Database relazionale) per garantire semplicità di manutenzione, chiara separazione delle responsabilità e scalabilità:
+
+### Frontend
+- **Single Page Application (SPA)** in HTML5, CSS3 e Vanilla JavaScript (servita staticamente dalla cartella `public/`):
+  - **Gestione autenticazione e sessione:** form di login con salvataggio dello stato dell'utente autenticato in `localStorage` e funzione di logout.
+  - **Interfaccia dinamica:** aggiornamento reattivo del DOM tramite richieste asincrone (`fetch`) verso le API del backend, senza ricaricamento della pagina.
+  - **Tutela della privacy:** visualizzazione selettiva dei dati delle prenotazioni (email reale e pulsante **Annulla** visibili solo allo studente proprietario).
+
+### Backend
+- **Server REST API** sviluppato in **Node.js** con framework **Express** (`server.js`):
+  - **Middleware integrati:** gestione automatica del parsing JSON (`express.json()`) ed erogazione dei file statici del frontend (`express.static('public')`).
+  - **Servizio Autenticazione (`POST /api/login`):** verifica delle credenziali utente sul database tramite query parametriche.
+  - **Servizio Aule (`GET /api/aule`):** recupero dell'elenco completo delle aule studio disponibili.
+  - **Servizio Prenotazioni (`GET`, `POST`, `DELETE /api/prenotazioni`):** lettura delle prenotazioni con `JOIN` sulle aule, controllo preventivo contro le sovrapposizioni (stato `409 Conflict`) e verifica lato server dell'identità del proprietario prima dell'eliminazione (stato `403 Forbidden`).
+
+### Database
+- **Database relazionale MySQL** (`db_aule_studio`) gestito tramite il driver `mysql2`:
+  - **Tabella `utenti`:** anagrafica e credenziali degli studenti abilitati all'accesso.
+  - **Tabella `aule`:** catalogo delle aule studio con capienza e ubicazione.
+  - **Tabella `prenotazioni`:** registro delle prenotazioni collegate alle aule tramite chiave esterna (`FOREIGN KEY` su `aula_id` con `ON DELETE CASCADE`) e query parametriche (`?`) per prevenire SQL injection.
+
 ## Struttura del repository
 - `server.js` — Server Express, connessione al database MySQL ed endpoint REST API (`/api/login`, `/api/aule`, `/api/prenotazioni`)
 - `public/` — Interfaccia web (`index.html`, `style.css`, `app.js`)
