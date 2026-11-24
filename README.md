@@ -1,18 +1,20 @@
 # Gestore Aule Studio
 
-Applicazione web per la gestione e la prenotazione delle aule studio universitarie dedicata agli studenti, con autenticazione, consultazione delle aule, creazione/annullamento delle prenotazioni e tutela della privacy sulle email degli altri utenti.
+Applicazione web per la gestione e la prenotazione delle aule studio universitarie dedicata agli studenti, con autenticazione, consultazione delle aule, creazione e annullamento delle prenotazioni e tutela della privacy sulle email degli altri utenti.
 
 ## Panoramica
-La piattaforma permette agli studenti di:
+Il Gestore Aule Studio è una web application pensata per semplificare la vita quotidiana degli studenti universitari nella ricerca e prenotazione di un posto o di uno spazio in aula studio. Dopo aver effettuato l'accesso con il proprio account, lo studente può consultare rapidamente le aule disponibili e verificare quali fasce orarie risultano già occupate. Quando vuole riservare uno spazio per studiare, compila il form scegliendo aula, data e fascia oraria, mentre il sistema controlla che non ci siano sovrapposizioni. Allo stesso tempo, l'elenco delle prenotazioni permette di tenere sotto controllo l'occupazione delle aule nel rispetto della privacy altrui, mostrando la propria email e il pulsante di annullamento solo sulle prenotazioni create dal singolo studente.
+
+## Funzionalità principali
 - Effettuare il login e gestire la propria sessione.
 - Consultare l'elenco delle aule studio disponibili.
 - Prenotare un'aula per una data e una fascia oraria (con controllo lato server contro le sovrapposizioni).
-- Visualizzare le prenotazioni registrate.
-- Annullare una propria prenotazione.
+- Visualizzare le prenotazioni registrate (mostrando la propria email e il tasto **Annulla** solo sulle proprie prenotazioni, mentre nasconde l'email degli altri studenti).
+- Annullare una propria prenotazione con verifica lato server.
 
 ## Stack tecnologico
 - **Frontend:** HTML5, CSS3, JavaScript (SPA in `public/`)
-- **Backend:** Node.js v24.22.3, Express (`server.js`)
+- **Backend:** Node.js, Express (`server.js`)
 - **Database:** MySQL (`mysql2`)
 
 ## Struttura del repository
