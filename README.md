@@ -7,7 +7,7 @@ La piattaforma permette agli studenti di:
 - Effettuare il login e gestire la propria sessione.
 - Consultare l'elenco delle aule studio disponibili.
 - Prenotare un'aula per una data e una fascia oraria (con controllo lato server contro le sovrapposizioni).
-- Visualizzare le prenotazioni registrate (mostrando la propria email e il tasto **Annulla** solo sulle proprie prenotazioni, mentre nasconde l'email degli altri studenti).
+- Visualizzare le prenotazioni registrate.
 - Annullare una propria prenotazione.
 
 ## Stack tecnologico
