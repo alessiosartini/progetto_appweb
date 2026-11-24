@@ -1,0 +1,211 @@
+/* Reset essenziale e box model prevedibile */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-page: #f4f6f9;
+  --bg-card: #ffffff;
+  --text-main: #1f2937;
+  --text-muted: #5b6575;
+  --border-color: #d8dee9;
+  --primary: #1d4ed8;
+  --primary-hover: #1e40af;
+  --danger: #b91c1c;
+  --danger-hover: #991b1b;
+  --success: #15803d;
+  --radius: 8px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+/* Contenitore principale centrato */
+.container,
+main,
+header {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 16px 20px;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Sezioni / card */
+section {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+
+section h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+/* Liste aule e prenotazioni */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eef2f6;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+/* Form e controlli */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+input,
+select,
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 9px 12px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid rgba(29, 78, 216, 0.25);
+  border-color: var(--primary);
+}
+
+button {
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+button.btn-annulla,
+button.annulla-btn {
+  background-color: var(--danger);
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+
+button.btn-annulla:hover,
+button.annulla-btn:hover {
+  background-color: var(--danger-hover);
+}
+
+/* Messaggi di stato */
+.msg-errore,
+.errore {
+  color: var(--danger);
+  font-weight: 500;
+}
+
+.msg-ok,
+.successo {
+  color: var(--success);
+  font-weight: 500;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+/* Adattamento per schermi smartphone */
+@media (max-width: 640px) {
+  header,
+  main,
+  .container {
+    padding: 12px 14px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  section {
+    padding: 14px;
+  }
+
+  form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  label,
+  input,
+  select,
+  button {
+    width: 100%;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  li button {
+    width: auto;
+    align-self: flex-end;
+  }
+}
