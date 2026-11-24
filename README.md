@@ -12,7 +12,7 @@ La piattaforma permette agli studenti di:
 
 ## Stack tecnologico
 - **Frontend:** HTML5, CSS3, JavaScript (SPA in `public/`)
-- **Backend:** Node.js, Express (`server.js`)
+- **Backend:** Node.js v24.22.3, Express (`server.js`)
 - **Database:** MySQL (`mysql2`)
 
 ## Struttura del repository
