@@ -24,7 +24,6 @@ L'applicazione adotta un'architettura **client-server a tre livelli** (Frontend,
 - **Single Page Application (SPA)** in HTML5, CSS3 e Vanilla JavaScript (servita staticamente dalla cartella `public/`):
   - **Gestione autenticazione e sessione:** form di login con salvataggio dello stato dell'utente autenticato in `localStorage` e funzione di logout.
   - **Interfaccia dinamica:** aggiornamento reattivo del DOM tramite richieste asincrone (`fetch`) verso le API del backend, senza ricaricamento della pagina.
-  - **Tutela della privacy:** visualizzazione selettiva dei dati delle prenotazioni (email reale e pulsante **Annulla** visibili solo allo studente proprietario).
 
 ### Backend
 - **Server REST API** sviluppato in **Node.js** con framework **Express** (`server.js`):
